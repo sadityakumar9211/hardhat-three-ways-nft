@@ -1,0 +1,11 @@
+{
+    "name": "Astronaut", 
+    "description": "A flying astronaut in the space",
+    "image": "http://bafybeicaps26duxxpszcinib73t7areqilkqfd4cn6c5wcefos74xdf7ya.ipfs.localhost:8080/",
+    "attributes": [
+        {
+            "trait_type": "inspiring",
+            "value": 100
+        }
+    ]
+}
