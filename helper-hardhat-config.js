@@ -9,7 +9,7 @@ const networkConfig = {     //all the parameters that are different chain-to-cha
         vrfCoordinatorV2: "0x6168499c0cFfCaCD319c818142124B7A15E857ab",
         entranceFees: ethers.utils.parseEther("0.01"),
         gasLane: "0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc",   //30 GWei GasLane
-        subscriptionId: 1769,
+        subscriptionId: 7203,
         callbackGasLimit: "500000",
         interval: "30", //30 seconds
         waitConfirmations: 6,
@@ -31,10 +31,15 @@ const NAME = "Astronaut"
 const SYMBOL = "ASTRO"
 const TOKEN_URI = "http://bafybeigr47gmbviwztbrgzaam6sg2xk2ludsetrplsqbdqfcrwazp5tpqm.ipfs.localhost:8080/"
 
+const BASE_FEE = ethers.utils.parseEther("0.25")    //0.25 is the premium. It costs 0.25 LINK to request a random number
+const GAS_PRICE_LINK =  1e9       //link per gas
+
 module.exports = {
     networkConfig,
     developmentChains,
     NAME,
     SYMBOL,
     TOKEN_URI, 
+    BASE_FEE,
+    GAS_PRICE_LINK
 }
