@@ -35,3 +35,5 @@ contract BasicNft is
         return s_tokenCounter;
     }
 }
+
+
