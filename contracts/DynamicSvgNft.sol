@@ -5,6 +5,8 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "base64-sol/base64.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "hardhat/console.sol";
+
 
 contract DynamicSvgNft is ERC721 {
     //this will be a basic nft with
@@ -92,6 +94,18 @@ contract DynamicSvgNft is ERC721 {
     }
 
     //view and pure functions
+    function getLowSVG() public view returns (string memory) {
+        return i_lowImageURI;
+    }
+
+    function getHighSVG() public view returns (string memory) {
+        return i_highImageURI;
+    }
+
+    function getPriceFeed() public view returns (AggregatorV3Interface) {
+        return i_priceFeed;
+    }
+
     function getTokenCounter() public view returns (uint256) {
         return s_tokenCounter;
     }
