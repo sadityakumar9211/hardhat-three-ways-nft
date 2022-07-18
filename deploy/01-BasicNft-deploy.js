@@ -18,7 +18,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         waitConfirmations: network.config.blockConfirmations || 1,
     })
 
-    log("Basic NFT Contract deployed successfully...")
+    log(`Basic NFT Contract deployed successfully at ${basicNft.address}`)
 
     //verifying the contract on rinkeby.etherscan.io
     if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
@@ -28,4 +28,4 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     }
 }
 
-module.exports.tags = ["all", "BasicNft"]
+module.exports.tags = ["all", "BasicNft", "main"]
