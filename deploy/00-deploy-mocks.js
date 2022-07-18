@@ -12,6 +12,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     const chainId = network.config.chainId //This is important for the logic that--> mock is only deployed on a development chains.
     const args = [BASE_FEE, GAS_PRICE_LINK]
     if (developmentChains.includes(network.name)) {
+        console.log("Local Network Detected!")
         log("Deploying mocks for RandomIpfsNft.sol smart contract on " + network.name + "...")
         //deploy a mock vrfCoordinatorV2... --> create one of those using the mocks on chainlink github.
         await deploy("VRFCoordinatorV2Mock", {
@@ -27,7 +28,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
             args: [DECIMALS, INITIAL_PRICE],
             waitConfirmations: 1, 
         })
-        
+
         log("Mocks Deployed!")
         log("#############################################")
     }
