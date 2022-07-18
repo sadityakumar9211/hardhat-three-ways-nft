@@ -25,7 +25,11 @@ contract DynamicSvgNft is ERC721 {
     //events
     event CreatedNFT(uint256 indexed tokenId, int256 highValue);
 
-    constructor(address priceFeedAddress, string memory lowSvg, string memory highSvg) ERC721("Dynamic SVG NFT", "DSN") {
+    constructor(
+        address priceFeedAddress,
+        string memory lowSvg,
+        string memory highSvg
+    ) ERC721("Dynamic SVG NFT", "DSN") {
         s_tokenCounter = 0;
         i_lowImageURI = svgToImageURI(lowSvg);
         i_highImageURI = svgToImageURI(highSvg);
@@ -43,7 +47,7 @@ contract DynamicSvgNft is ERC721 {
     //user doesnot need to pay money for minting this nft
     function mintNft(int256 highValue) public {
         s_tokenIdToHighValue[s_tokenCounter] = highValue;
-        _safeMint(msg.sender, s_tokenCounter); 
+        _safeMint(msg.sender, s_tokenCounter);
         s_tokenCounter += 1;
         emit CreatedNFT(s_tokenCounter, highValue);
     }
@@ -60,7 +64,7 @@ contract DynamicSvgNft is ERC721 {
         (, int256 price, , , ) = i_priceFeed.latestRoundData();
 
         string memory imageURI = i_lowImageURI;
-        if(price >= s_tokenIdToHighValue[tokenId]){
+        if (price >= s_tokenIdToHighValue[tokenId]) {
             imageURI = i_highImageURI;
         }
 

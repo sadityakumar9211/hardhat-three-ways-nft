@@ -111,7 +111,7 @@ module.exports = {
                 version: "0.8.7",
             },
             {
-                version: "0.4.24",
+                version: "0.6.6",
             },
         ],
     },
