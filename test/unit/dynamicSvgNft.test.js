@@ -42,15 +42,14 @@ const highSVGimageUri =
                   )
                   const tokenCounter = await dynamicSvgNft.getTokenCounter()
                   assert.equal(tokenCounter.toString(), "1") //priceFeed gives 1/2000ETH/USD on localhost and here we are comparing it with 1Eth/USD which will almost always be high
-
               })
               it("shifts the token uri to lower when the price doesn't surpass the highvalue", async function () {
                   //I don't agree with this test.
                   const highValue = ethers.utils.parseEther("100000000") // $100,000,000 dollar per ether as compared to 2000ETH/USD
                   const txResponse = await dynamicSvgNft.mintNft(highValue)
                   await txResponse.wait(1)
-                //   const tokenURI = await dynamicSvgNft.tokenURI(0)
-                //   assert.equal(tokenURI, lowTokenUri)
+                  //   const tokenURI = await dynamicSvgNft.tokenURI(0)
+                  //   assert.equal(tokenURI, lowTokenUri)
               })
           })
 
